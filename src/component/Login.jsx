@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvder";
 
@@ -14,6 +14,7 @@ const Login = () => {
       .then((result) => {
         const loguser = result.user;
         console.log(loguser);
+        form.reset();
       })
       .catch((error) => {
         const err = error.message;
