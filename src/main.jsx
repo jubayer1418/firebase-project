@@ -3,10 +3,12 @@ import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./component/Home";
 import Login from "./component/Login";
+import Orders from "./component/Orders";
 import Register from "./component/Register";
 import "./index.css";
 import Main from "./layout/main";
 import AuthProvder from "./providers/AuthProvder";
+import PrivetRoute from "./route/PrivetRoute";
 
 const router = createBrowserRouter([
   {
@@ -24,6 +26,14 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register></Register>,
+      },
+      {
+        path: "/orders",
+        element: (
+          <PrivetRoute>
+            <Orders></Orders>
+          </PrivetRoute>
+        ),
       },
     ],
   },
